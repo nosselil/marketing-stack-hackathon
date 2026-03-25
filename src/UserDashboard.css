@@ -1,0 +1,890 @@
+/* User Dashboard */
+.ud-shell {
+  color: #fff;
+  font-family: Inter, system-ui, sans-serif;
+  padding: 0 32px 80px;
+}
+
+.ud-creator-top {
+  position: relative;
+  padding: 0;
+}
+.ud-creator-embed {
+  max-width: 100%;
+}
+.ud-creator-embed .dashboard-shell {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+.ud-hero-tabs-anchor {
+  position: relative;
+}
+.ud-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  position: relative;
+  padding: 60px 20px 80px;
+  text-align: center;
+}
+.ud-botface {
+  width: 80px;
+  height: 80px;
+  border-radius: 24px;
+  margin-bottom: 20px;
+}
+.ud-hero-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  letter-spacing: -0.02em;
+}
+.ud-hero-sub {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 20px;
+}
+.ud-back-button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.ud-back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Tab Navigation */
+.ud-hero-tabs-anchor {
+  position: relative;
+  height: 56px;
+}
+.ud-tab-container {
+  display: flex;
+  height: 56px;
+  background: rgba(10, 18, 14, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 30;
+  position: fixed;
+  left: 0;
+  right: 0;
+  /* Position at bottom using top + translateY */
+  top: 0;
+  transform: translateY(calc(100vh - 56px));
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ud-tab-container--sticky {
+  transform: translateY(0);
+}
+.ud-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  letter-spacing: 0.03em;
+}
+.ud-tab:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+}
+.ud-tab--active {
+  color: #9CFF8F;
+}
+.ud-tab-slider {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background: #9CFF8F;
+  border-radius: 3px 3px 0 0;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+/* Main Sections */
+.ud-main {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 32px 80px;
+}
+.ud-section {
+  min-height: 60vh;
+  padding: 48px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ud-section:last-child {
+  border-bottom: none;
+}
+.ud-section h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 28px;
+  letter-spacing: -0.02em;
+}
+
+/* Stats Grid */
+.ud-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.ud-stat-card {
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.ud-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #9CFF8F;
+}
+.ud-stat-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Recent Activity */
+.ud-recent h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+/* Empty State */
+.ud-empty-state {
+  padding: 40px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+.ud-empty-state p {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.88rem;
+  margin: 0 0 16px;
+}
+.ud-action-button {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: #9CFF8F;
+  color: #04110D;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.15s;
+}
+.ud-action-button:hover {
+  opacity: 0.85;
+}
+.ud-action-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.ud-plan-badge {
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #9cff8f, #57d19b);
+  color: #0f1f16;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.ud-timezone-select {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 0.82rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Calendar */
+.ud-recent {
+  margin-top: 12px;
+}
+.ud-recent-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.ud-recent-toggle::-webkit-details-marker {
+  display: none;
+}
+.ud-recent-toggle h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.ud-recent-arrow {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s;
+}
+details.ud-recent[open] .ud-recent-arrow {
+  transform: rotate(90deg);
+}
+.ud-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.ud-recent-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+.ud-recent-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ud-recent-item strong {
+  font-size: 0.8rem;
+}
+.ud-recent-item .meta {
+  font-size: 0.68rem;
+}
+
+.ud-calendar-month {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 10px;
+}
+.ud-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.ud-calendar-header {
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.ud-calendar-cell {
+  aspect-ratio: 0.85;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: default;
+  gap: 2px;
+  padding: 4px 2px;
+  position: relative;
+}
+.ud-calendar-cell--empty {
+  background: transparent;
+  border-color: transparent;
+}
+.ud-calendar-cell--today {
+  border-color: rgba(156, 255, 143, 0.4);
+  background: rgba(156, 255, 143, 0.06);
+}
+.ud-calendar-cell--today .ud-calendar-day {
+  color: #9CFF8F;
+  font-weight: 700;
+}
+.ud-calendar-cell--has-post {
+  background: rgba(255, 255, 255, 0.05);
+}
+.ud-calendar-post-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  font-size: 0.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.ud-calendar-post-count span:first-child {
+  color: #9CFF8F;
+}
+.ud-calendar-post-count span:last-child {
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+.ud-calendar-day {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 4px 0;
+}
+.ud-calendar-day-month {
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ud-status--failed {
+  color: #FF6B6B;
+}
+.ud-calendar-dots {
+  display: flex;
+  gap: 3px;
+}
+.ud-calendar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+.ud-calendar-dot--done {
+  background: #9CFF8F;
+}
+.ud-calendar-dot--scheduled {
+  background: rgba(255, 255, 255, 0.35);
+}
+.ud-calendar-dot--pending {
+  background: rgba(255, 255, 255, 0.35);
+}
+.ud-calendar-dot--failed {
+  background: #FF6B6B;
+}
+.ud-calendar-dot-wrap {
+  position: relative;
+}
+.ud-calendar-popover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  width: 200px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(20, 28, 24, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: fadeIn 0.15s ease;
+  backdrop-filter: blur(12px);
+}
+.ud-calendar-popover strong {
+  font-size: 0.8rem;
+  color: #fff;
+}
+.ud-calendar-popover .meta {
+  font-size: 0.68rem;
+}
+.ud-calendar-popover-caption {
+  margin: 4px 0 0;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  font-style: italic;
+}
+.ud-calendar-popover-close {
+  margin-top: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.65rem;
+  cursor: pointer;
+  align-self: flex-end;
+  font-family: inherit;
+}
+
+.ud-calendar-cell--selected {
+  border-color: rgba(156, 255, 143, 0.5) !important;
+  background: rgba(156, 255, 143, 0.08) !important;
+}
+
+.ud-calendar-day-popup {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(20, 28, 24, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  animation: fadeIn 0.15s ease;
+  backdrop-filter: blur(14px);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow: hidden;
+}
+.ud-calendar-day-popup-header {
+  flex-shrink: 0;
+}
+.ud-calendar-day-popup-list {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+.ud-calendar-day-popup-list::-webkit-scrollbar {
+  width: 3px;
+}
+.ud-calendar-day-popup-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ud-calendar-day-popup-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+.ud-calendar-day-popup-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.ud-calendar-day-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ud-calendar-day-popup-header strong {
+  font-size: 0.85rem;
+}
+.ud-calendar-day-popup-item {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.ud-calendar-day-popup-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.ud-calendar-day-popup-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.ud-calendar-day-popup-type {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+.ud-calendar-day-popup-status {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.ud-status--posted { color: #9CFF8F; }
+.ud-status--scheduled { color: #FFD700; }
+.ud-calendar-day-popup-caption {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Make calendar section relative for popup positioning */
+.ud-calendar-grid {
+  position: relative;
+}
+
+/* Post preview overlay */
+.ud-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  animation: fadeIn 0.15s ease;
+}
+.ud-preview-card {
+  position: relative;
+  width: min(420px, calc(100vw - 48px));
+  max-height: 85vh;
+  border-radius: 20px;
+  background: rgba(20, 28, 24, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.ud-preview-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+.ud-preview-media {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  background: #000;
+}
+.ud-preview-media img,
+.ud-preview-media video {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  display: block;
+}
+.ud-preview-details {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ud-preview-caption {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+/* Connected Accounts */
+.ud-accounts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ud-account-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ud-account-icon {
+  font-size: 1.6rem;
+}
+.ud-account-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ud-account-info strong {
+  font-size: 0.88rem;
+}
+.ud-account-status {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+.ud-connect-button {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.ud-connect-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+}
+.ud-connect-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ud-connect-status-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ud-connect-status-dot--connected {
+  border-color: rgba(156, 255, 143, 0.4);
+  background: rgba(156, 255, 143, 0.12);
+  color: #9CFF8F;
+}
+
+.ud-page-selectors {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ud-page-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ud-page-selector .meta {
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.ud-page-select {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 0.78rem;
+  font-family: inherit;
+}
+
+.ud-page-check {
+  color: #9CFF8F;
+  font-weight: 700;
+}
+
+.ud-page-popup {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(156, 255, 143, 0.06);
+  border: 1px solid rgba(156, 255, 143, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.2s ease;
+}
+
+.ud-page-popup strong {
+  font-size: 0.88rem;
+}
+
+.ud-page-popup .ud-page-select {
+  margin-top: 4px;
+}
+
+/* Analytics Placeholder */
+.ud-placeholder-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 120px;
+  margin-top: 20px;
+  justify-content: center;
+}
+.ud-chart-bar {
+  width: 28px;
+  border-radius: 6px 6px 0 0;
+  background: #9CFF8F;
+}
+.ud-chart-bar--active {
+  opacity: 1 !important;
+  background: #9CFF8F;
+  min-height: 2px;
+}
+
+.ud-analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.ud-analytics-header h2 {
+  margin: 0;
+}
+
+.ud-analytics-platform-select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.ud-stat-row--inline {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 8px !important;
+}
+
+.ud-stat-row--inline .ud-stat-card {
+  flex: 1;
+  min-width: 0;
+}
+
+.ud-analytics-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 120px;
+  margin-top: 8px;
+}
+
+.ud-chart-bar-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.ud-chart-bar-value {
+  font-size: 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.ud-analytics-chart .ud-chart-bar {
+  width: 100%;
+  min-width: 0;
+}
+
+.ud-platform-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ud-platform-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ud-platform-row strong {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Settings */
+.ud-settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 28px;
+}
+.ud-setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.ud-setting-row strong {
+  font-size: 0.88rem;
+}
+.ud-setting-value {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 4px 0 0;
+}
+.ud-logout-button {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  background: rgba(255, 100, 100, 0.08);
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.ud-logout-button:hover {
+  background: rgba(255, 100, 100, 0.15);
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .ud-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ud-tab {
+    font-size: 0.72rem;
+  }
+}
